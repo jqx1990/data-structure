@@ -1,0 +1,22 @@
+while(input.hasNext())
+		{
+			try
+			{
+				if(readings.get(i).ignored == false)
+				{
+				readings.set(i, new WindReading(input.next(), input.nextDouble(), // if return to here, will if affect?
+						input.nextDouble(), input.nextDouble()));
+				}
+				else
+				{
+					i++;
+					readings.set(i, new WindReading(input.next(), input.nextDouble(),
+						input.nextDouble(), input.nextDouble()));
+				}
+			}
+			catch(InputMismatchException e)
+			{
+				readings.get(i).ignored(true);
+				invalidReadings++;
+				return;
+			}
